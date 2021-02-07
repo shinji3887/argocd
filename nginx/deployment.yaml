@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-test-pods
+  template:
+    metadata:
+      labels:
+        app: argocd-test-pods
+    spec:
+      containers:
+      - image: nginx
+        name: argocd-test
